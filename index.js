@@ -3,8 +3,181 @@ const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const inquirer = require('inquirer');
+const { restoreDefaultPrompts } = require('inquirer');
 
-const promptManagerInfo = () => {
+const promptEngineerInfo = teamData => {
+  if (!teamData.engineers) {
+    teamData.engineers = [];
+  }
+  return inquirer.prompt([
+    {
+      type: 'input',
+      name: 'engineerNameInput',
+      message: "What is the Engineer's name? (Required)",
+      validate: engineerNameInput => {
+        if (engineerNameInput) {
+          return true;
+        } else {
+          console.log("Please enter the Engineer's name!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'engineerEmployeeId',
+      message: "What is the Engineers's employee ID? (Required)",
+      validate: engineerEmployeeId => {
+        if (engineerEmployeeId) {
+          return true;
+        } else {
+          console.log("Please enter the Engineer's employee ID!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'engineerEmail',
+      message: "What is the Engineers's email? (Required)",
+      validate: engineerEmail => {
+        if (engineerEmail) {
+          return true;
+        } else {
+          console.log("Please enter the Engineer's email!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'engineerGithubUser',
+      message: "What is the Engineers's Github username? (Required)",
+      validate: engineerGithubUser => {
+        if (engineerGithubUser) {
+          return true;
+        } else {
+          console.log("Please enter the Engineer's Github username!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmAddMember',
+      message: 'Would you like to add more members to the Team?',
+      default: false
+    },
+    {
+      type: 'list',
+      name: 'memberTypeToAdd',
+      message: 'Choose an engineer or an intern:',
+      choices: ['engineer', 'intern'],
+      when: ({ confirmAddMember }) => confirmAddMember
+    }
+  ])
+    .then(engineerData => {
+      teamData.engineers.push(engineerData);
+      if (engineerData.confirmAddMember) {
+        if (engineerData.memberTypeToAdd === 'engineer') {
+          console.log("ADDING AN ENGINEER");
+          return promptEngineerInfo(teamData);
+        } else if (engineerData.memberTypeToAdd == 'intern') {
+          console.log("ADDING AN INTERN");
+          return promptInternInfo(teamData);
+        }
+      }
+      return teamData;
+    });
+};
+
+const promptInternInfo = teamData => {
+  if (!teamData.interns) {
+    teamData.interns = [];
+  }
+  return inquirer.prompt([
+    {
+      type: 'input',
+      name: 'internName',
+      message: "What is the Intern's name? (Required)",
+      validate: internNameInput => {
+        if (internNameInput) {
+          return true;
+        } else {
+          console.log("Please enter the Interns's name!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'internEmployeeId',
+      message: "What is the Intern's employee ID? (Required)",
+      validate: internEmployeeId => {
+        if (internEmployeeId) {
+          return true;
+        } else {
+          console.log("Please enter the Intern's employee ID!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'internEmail',
+      message: "What is the Intern's email? (Required)",
+      validate: internEmail => {
+        if (internEmail) {
+          return true;
+        } else {
+          console.log("Please enter the Intern's email!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'input',
+      name: 'internSchool',
+      message: "What is the Intern's college name? (Required)",
+      validate: internSchool => {
+        if (internSchool) {
+          return true;
+        } else {
+          console.log("Please enter the Intern's college name!");
+          return false;
+        }
+      }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmAddMember',
+      message: 'Would you like to add more members to the Team?',
+      default: false
+    },
+    {
+      type: 'list',
+      name: 'memberTypeToAdd',
+      message: 'Choose an engineer or an intern:',
+      choices: ['engineer', 'intern'],
+      when: ({ confirmAddMember }) => confirmAddMember
+    }
+  ])
+    .then(internData => {
+      teamData.interns.push(internData);
+      if (internData.confirmAddMember) {
+        if (internData.memberTypeToAdd === 'engineer') {
+          console.log("ADDING AN ENGINEER");
+          return promptEngineerInfo(teamData);
+        } else if (internData.memberTypeToAdd == 'intern') {
+          console.log("ADDING AN INTERN");
+          return promptInternInfo(teamData);
+        }
+      }
+      return teamData;
+    });
+};
+
+const promptTeamInfo = () => {
   return inquirer.prompt([
     {
       type: 'input',
@@ -67,10 +240,88 @@ const promptManagerInfo = () => {
           return true;
         } else {
           console.log("Please enter the Manager's office number!");
-          return false; 
+          return false;
         }
       }
+    },
+    {
+      type: 'confirm',
+      name: 'confirmAddMember',
+      message: 'Would you like to add members to the Team?',
+      default: false
+    },
+    {
+      type: 'list',
+      name: 'memberTypeToAdd',
+      message: 'Choose an engineer or an intern:',
+      choices: ['engineer', 'intern'],
+      when: ({ confirmAddMember }) => confirmAddMember
     }
   ])
 };
 
+const promptMemberInfo = teamData => {
+  if (!teamData.confirmAddMember) {
+    console.log("ALL DONE: " + JSON.stringify(teamData));
+    return teamData;
+  }
+
+  if (teamData.memberTypeToAdd === 'intern') {
+    promptInternInfo()
+      .then(internData => {
+        teamData.interns.push(internData);
+        teamData.confirmAddMember = internData.confirmAddMember;
+        teamData.memberTypeToAdd = internData.memberTypeToAdd;
+        return teamData;
+      })
+      .then(teamData => {
+        if (teamData.confirmAddMember) {
+          return promptMemberInfo(teamData);
+        }
+        return teamData;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  } else {
+    promptEngineerInfo()
+      .then(engineerData => {
+        teamData.engineers.push(engineerData);
+        teamData.confirmAddMember = engineerData.confirmAddMember;
+        teamData.memberTypeToAdd = engineerData.memberTypeToAdd;
+        console.log("promptEngineerInfo(): " + JSON.stringify(teamData));
+        return teamData;
+      })
+      .then(teamData => {
+        console.log("AFTER promptEngineerInfo(): " + JSON.stringify(teamData));
+        if (teamData.confirmAddMember) {
+          return promptMemberInfo(teamData);
+        }
+        return teamData;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+};
+
+promptTeamInfo()
+  .then(teamData => {
+    if (teamData.confirmAddMember) {
+      if (teamData.memberTypeToAdd === 'engineer') {
+        console.log("ADDING AN ENGINEER");
+        return promptEngineerInfo(teamData);
+      } else if (teamData.memberTypeToAdd === 'intern') {
+        console.log("ADDING AN INTERN");
+        return promptInternInfo(teamData);
+      }
+      return teamData;
+    }
+  })
+  .then(moreData => {
+    const x = JSON.stringify(moreData);
+    console.log("IS IT HERE: " + x);
+  })
+  .catch(err => {
+    console.log(err);
+  });
