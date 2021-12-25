@@ -264,8 +264,8 @@ promptTeamInfo()
       } else if (teamData.memberTypeToAdd === 'intern') {
         return promptInternInfo(teamData);
       }
-      return teamData;
     }
+    return teamData;
   })
   .then(moreData => {
     console.log(JSON.stringify(moreData));
