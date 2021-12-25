@@ -80,10 +80,8 @@ const promptEngineerInfo = teamData => {
       teamData.engineers.push(engineerData);
       if (engineerData.confirmAddMember) {
         if (engineerData.memberTypeToAdd === 'engineer') {
-          console.log("ADDING AN ENGINEER");
           return promptEngineerInfo(teamData);
         } else if (engineerData.memberTypeToAdd == 'intern') {
-          console.log("ADDING AN INTERN");
           return promptInternInfo(teamData);
         }
       }
@@ -166,10 +164,8 @@ const promptInternInfo = teamData => {
       teamData.interns.push(internData);
       if (internData.confirmAddMember) {
         if (internData.memberTypeToAdd === 'engineer') {
-          console.log("ADDING AN ENGINEER");
           return promptEngineerInfo(teamData);
         } else if (internData.memberTypeToAdd == 'intern') {
-          console.log("ADDING AN INTERN");
           return promptInternInfo(teamData);
         }
       }
@@ -260,67 +256,19 @@ const promptTeamInfo = () => {
   ])
 };
 
-const promptMemberInfo = teamData => {
-  if (!teamData.confirmAddMember) {
-    console.log("ALL DONE: " + JSON.stringify(teamData));
-    return teamData;
-  }
-
-  if (teamData.memberTypeToAdd === 'intern') {
-    promptInternInfo()
-      .then(internData => {
-        teamData.interns.push(internData);
-        teamData.confirmAddMember = internData.confirmAddMember;
-        teamData.memberTypeToAdd = internData.memberTypeToAdd;
-        return teamData;
-      })
-      .then(teamData => {
-        if (teamData.confirmAddMember) {
-          return promptMemberInfo(teamData);
-        }
-        return teamData;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  } else {
-    promptEngineerInfo()
-      .then(engineerData => {
-        teamData.engineers.push(engineerData);
-        teamData.confirmAddMember = engineerData.confirmAddMember;
-        teamData.memberTypeToAdd = engineerData.memberTypeToAdd;
-        console.log("promptEngineerInfo(): " + JSON.stringify(teamData));
-        return teamData;
-      })
-      .then(teamData => {
-        console.log("AFTER promptEngineerInfo(): " + JSON.stringify(teamData));
-        if (teamData.confirmAddMember) {
-          return promptMemberInfo(teamData);
-        }
-        return teamData;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-};
-
 promptTeamInfo()
   .then(teamData => {
     if (teamData.confirmAddMember) {
       if (teamData.memberTypeToAdd === 'engineer') {
-        console.log("ADDING AN ENGINEER");
         return promptEngineerInfo(teamData);
       } else if (teamData.memberTypeToAdd === 'intern') {
-        console.log("ADDING AN INTERN");
         return promptInternInfo(teamData);
       }
       return teamData;
     }
   })
   .then(moreData => {
-    const x = JSON.stringify(moreData);
-    console.log("IS IT HERE: " + x);
+    console.log(JSON.stringify(moreData));
   })
   .catch(err => {
     console.log(err);
