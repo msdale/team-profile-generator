@@ -8,10 +8,10 @@ const promptEngineerInfo = teamData => {
   return inquirer.prompt([
     {
       type: 'input',
-      name: 'engineerNameInput',
+      name: 'engineerName',
       message: "What is the Engineer's name? (Required)",
-      validate: engineerNameInput => {
-        if (engineerNameInput) {
+      validate: engineerName => {
+        if (engineerName) {
           return true;
         } else {
           console.log("Please enter the Engineer's name!");
@@ -94,8 +94,8 @@ const promptInternInfo = teamData => {
       type: 'input',
       name: 'internName',
       message: "What is the Intern's name? (Required)",
-      validate: internNameInput => {
-        if (internNameInput) {
+      validate: internName => {
+        if (internName) {
           return true;
         } else {
           console.log("Please enter the Interns's name!");
