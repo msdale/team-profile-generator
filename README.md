@@ -17,6 +17,7 @@ The Team Profile Generator generates a styled HTML page that displays summary in
 
 It is assumed the local computing environment already has a recent version of node and npm installed.  If not please check out https://nodejs.org/en/download/ and install node and npm.  To run this node application, clone this github repository using the command 'git clone https://github.com/msdale/team-profile-generator.git <optional_root_directory_name>'.  Attach to the team-profile-generator root directory and execute the commands 'npm install', 'npm install fs-extra' and 'npm install inquirer' to ensure all project module dependencies are availablel and updated.  Now you are ready to run the team profile generator.
 
+npm-updates.mp4
 
 ## Usage
 
@@ -49,17 +50,30 @@ To execute the application, from the command line, attach to the root directory 
 { ok: true, message: 'HTML file created!' }  
 { ok: true, message: 'CSS file copied!' }  
 
+See demo of command-line prompts:  
+question-prompts.mp4
 
 
 NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
+
+team-profile-page.mp4
+
 
 ![](./assets/images/team-profile-sample.png)
 
 
 ## Tests
 
-Working on some unit testing automation using Jest.  Not quite there yet.
+Used Jest to unit test the four primary class objects; Employee, Manager, Engineer and Intern.  From the root directory execute the following tests:  
 
+* npm run test Employee
+* npm run test Manager
+* npm run test Engineer
+* npm run test Intern
+  
+Watch this demo to see it done.  
+
+passing-tests.mp4
 
 
 ## Questions
