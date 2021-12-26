@@ -20,31 +20,52 @@ It is assumed the local computing environment already has a recent version of no
 
 ## Usage
 
-To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, an Engineer and an Intern...
+To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, two Engineer's and an Intern...
 
 ? What is your Team name? (Required) The BLITZ  
 ? What is the Manager's name? (Required) Ray Turner  
-? What is the Manager's employee ID? (Required) 9324582  
-? What is the Manager's email? (Required) Ray.Turner@improv.com  
-? What is the Manager's office number? (Required) 304B  
+? What is the Manager's employee ID? (Required) 9324584  
+? What is the Manager's email? (Required) Ray.Turner@improve.com  
+? What is the Manager's office number? (Required) 3034b  
 ? Would you like to add members to the Team? Yes  
 ? Choose an engineer or an intern: engineer  
 ? What is the Engineer's name? (Required) Julia Kamsis  
-? What is the Engineers's employee ID? (Required) 9562311  
-? What is the Engineers's email? (Required) Julia.Kamsis@improv.com  
+? What is the Engineers's employee ID? (Required) 9456772  
+? What is the Engineers's email? (Required) Julia.Kamsis@improve.com  
+? What is the Engineers's Github username? (Required) jkamsis  
+? Would you like to add more members to the Team? Yes  
+? Choose an engineer or an intern: engineer  
+? What is the Engineer's name? (Required) Mark Dale  
+? What is the Engineers's employee ID? (Required) 9767382  
+? What is the Engineers's email? (Required) msdaledad@gmail.com  
 ? What is the Engineers's Github username? (Required) msdale  
 ? Would you like to add more members to the Team? Yes  
 ? Choose an engineer or an intern: intern  
 ? What is the Intern's name? (Required) Jaquin Samdala  
-? What is the Intern's employee ID? (Required) 7283574  
-? What is the Intern's email? (Required) Jaquin.Samdala@improv.com  
+? What is the Intern's employee ID? (Required) 7283567  
+? What is the Intern's email? (Required) Jaquin.Samdala@improve.com  
 ? What is the Intern's college name? (Required) University of Central Florida  
 ? Would you like to add more members to the Team? No  
 { ok: true, message: 'HTML file created!' }  
 { ok: true, message: 'CSS file copied!' }  
+
+
 
 NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
 
 ![](./assets/images/team-profile-sample.png)
 
 
+## Tests
+
+Working on some unit testing automation using Jest.  Not quite there yet.
+
+
+
+## Questions
+
+Any questions, please contact Mark Dale.
+
+My email address is: msdaledad@gmail.com
+My github profile is https://github.com/msdale
+The pertinent github repository is https://github.com/msdale/team-profile-generator
