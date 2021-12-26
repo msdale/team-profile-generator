@@ -8,9 +8,13 @@ The Team Profile Generator generates a styled HTML page that displays summary in
 
 ## Table Of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Tests](#tests)
+- [team-profile-generator](#team-profile-generator)
+  - [Description](#description)
+  - [Table Of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
 
 ## Installation
