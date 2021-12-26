@@ -1,5 +1,4 @@
 const generateManagerCard = function(manager) {
-  // insert manager properties into HTML card section
   return `
       <div>
         <p id="role">${manager.getRole()} &#9749;</p>
@@ -12,7 +11,6 @@ const generateManagerCard = function(manager) {
 };
 
 const generateEngineerCard = function(engineer) {
-  // insert engineer properties into HTML card section
   return `
       <li>
         <p id="role">${engineer.getRole()} &#127947;</p>
@@ -25,7 +23,6 @@ const generateEngineerCard = function(engineer) {
 };
 
 const generateInternCard = function(intern) {
-  // insert intern properties into HTMP card section
   return `
   <li>
     <p id="role">${intern.getRole()} &#9997;</p>
@@ -38,7 +35,6 @@ const generateInternCard = function(intern) {
 };
 
 const generateAllEngineerCards = function(engineers) {
-  // Call generateEngineerCard in array loop
   let htmlList = ``;
   for (let i = 0; i < engineers.length; i++) {
     htmlList += generateEngineerCard(engineers[i]);
@@ -47,7 +43,6 @@ const generateAllEngineerCards = function(engineers) {
 };
 
 const generateAllInternCards = function(interns) {
-  // Call generateInternCard in array loop
   let htmlList = ``;
   for (let i = 0; i < interns.length; i++) {
     htmlList += generateInternCard(interns[i]);
@@ -56,7 +51,7 @@ const generateAllInternCards = function(interns) {
 };
 
 module.exports = generatePage = (teamName, manager, engineers, interns) => {
-  // Fill in full HTML template
+  // Fill in HTML template with team member data
 
 return `
 <!DOCTYPE html>

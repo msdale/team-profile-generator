@@ -6,6 +6,10 @@ const {ensureDir, writeFile, copyFile} = require('./utils/generate-site.js');
 const { promptEngineerInfo, promptInternInfo, promptTeamInfo } = require('./utils/gather-team-data');
 const generatePage = require('./utils/generate-page');
 
+/*
+ * Extract data executed from prompts...
+ * Populate the team member class object appropriately
+ */
 
 const extractManager = function(teamData) {
   return new Manager(teamData.managerName,
@@ -45,14 +49,16 @@ const extractInterns = function(teamData) {
 };
 
 
-
-/**
+/*
  * Global variables
  */
 let manager = {};
 let engineers = [];
 let interns = []; 
 
+/*
+ * Process chain for generating Team Profile HTML
+ */
 promptTeamInfo()
   .then(teamData => {
     if (teamData.confirmAddMember) {
@@ -65,11 +71,10 @@ promptTeamInfo()
     return teamData;
   })
   .then(teamData => {
-    // Convert JSON data to class objects
+    // Convert Inquirer JSON object to Team member class objects
     manager = extractManager(teamData);
     engineers = extractEngineers(teamData);
     interns = extractInterns(teamData);
-
     return generatePage(teamData.teamName, manager, engineers, interns);
   })
   .then(pageHTML => {
