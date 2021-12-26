@@ -45,7 +45,7 @@ To execute the application, from the command line, attach to the root directory 
 
 NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
 
-![](assets/images/team-profile-sample.jpg)
+![](./assets/team-profile-sample.jpg)
 
 
 
