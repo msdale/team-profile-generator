@@ -57,12 +57,11 @@ https://user-images.githubusercontent.com/90280725/147418686-bd9a6318-09f5-4be7-
 
 NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
 
-team-profile-page.mp4
+![](./assets/images/team-profile-sample.png)  
+
+Check out the following demo to see in action:  
 
 https://user-images.githubusercontent.com/90280725/147418679-2c9b2edc-3ab4-4a8f-afc9-bf5a202c17bd.mp4
-
-![](./assets/images/team-profile-sample.png)
-
 
 ## Tests
 
