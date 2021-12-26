@@ -17,7 +17,8 @@ The Team Profile Generator generates a styled HTML page that displays summary in
 
 It is assumed the local computing environment already has a recent version of node and npm installed.  If not please check out https://nodejs.org/en/download/ and install node and npm.  To run this node application, clone this github repository using the command 'git clone https://github.com/msdale/team-profile-generator.git <optional_root_directory_name>'.  Attach to the team-profile-generator root directory and execute the commands 'npm install', 'npm install fs-extra' and 'npm install inquirer' to ensure all project module dependencies are availablel and updated.  Now you are ready to run the team profile generator.
 
-npm-updates.mp4
+https://user-images.githubusercontent.com/90280725/147418693-1f981062-bb03-4a1b-a0a3-7c9b2e2f2d75.mp4
+
 
 ## Usage
 
@@ -51,13 +52,14 @@ To execute the application, from the command line, attach to the root directory 
 { ok: true, message: 'CSS file copied!' }  
 
 See demo of command-line prompts:  
-question-prompts.mp4
 
+https://user-images.githubusercontent.com/90280725/147418686-bd9a6318-09f5-4be7-acd0-761e01ce8446.mp4
 
 NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
 
 team-profile-page.mp4
 
+https://user-images.githubusercontent.com/90280725/147418679-2c9b2edc-3ab4-4a8f-afc9-bf5a202c17bd.mp4
 
 ![](./assets/images/team-profile-sample.png)
 
@@ -73,7 +75,8 @@ Used Jest to unit test the four primary class objects; Employee, Manager, Engine
   
 Watch this demo to see it done.  
 
-passing-tests.mp4
+https://user-images.githubusercontent.com/90280725/147418647-21f76335-20aa-4df9-abd1-930c01ab006d.mp4
+
 
 
 ## Questions
