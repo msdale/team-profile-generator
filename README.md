@@ -20,7 +20,7 @@ It is assumed the local computing environment already has a recent version of no
 
 ## Usage
 
-To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, and Engineer and an Intern...
+To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, an Engineer and an Intern...
 
 ? What is your Team name? (Required) The BLITZ  
 ? What is the Manager's name? (Required) Ray Turner  
@@ -42,6 +42,14 @@ To execute the application, from the command line, attach to the root directory 
 ? Would you like to add more members to the Team? No  
 { ok: true, message: 'HTML file created!' }  
 { ok: true, message: 'CSS file copied!' }  
+
+NOTE: the 2 messages at the end of the prompts indicate the HTML and CSS files are created/copied and ready to go.  They are located in the ./dist directory and are named index.html and style.css. View the HTML file with you IDE app or your browser.  The results should appear as below.
+
+![](assets/images/team-profile-sample.png)
+
+
+
+
 
 
 You'll have to work through required vs default answers. The actual answers are not as important as all the sections you decide to include.  Keep the answers short and to the point; you'll probably edit them later. NOTE; There will be a question about the availability of a 'Usage Video' referencing an mp4 file named './assets/videos/usage-link.url'.  If you want to supply a usage video you will reply (y) to the prompt, but you must previously create an mp4 formatted video and install it in github.  Here's how; create the mp4 file; drag and drop it into any git repository markdown file while viewing the markdown file in the github browser. The dropped mp4 file will be transformed to a URL pointing to the mp4 file saved in a unique user-images.githubusercontent.com location. Place that URL as the only line in the './assets/videos/usage-link.url' file.

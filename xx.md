@@ -12,12 +12,18 @@
 
 ## Table Of Contents
 
-* [Installation](#installation)
-* [Usage](#usage)
-* [Credits](#credits)
-* [License](#license)
-* [Features](#features)
-* [Tests](#tests)
+- [README.md Generator](#readmemd-generator)
+  - [Description](#description)
+  - [Table Of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Usage Video](#usage-video)
+  - [Credits](#credits)
+  - [License](#license)
+  - [Features](#features)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
 
 
 
