@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/90280725/147418693-1f981062-bb03-4a1b-
 
 ## Usage
 
-To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, two Engineer's and an Intern...
+To execute the application, from the command line, attach to the root directory of the team profile generator repository clone and run the command 'node index.js'.  This will walk the user through a series of questions.  Here is an example of the question series when the user enters information for a team consisting of a Manager, two Engineers and an Intern...
 
 ? What is your Team name? (Required) The BLITZ  
 ? What is the Manager's name? (Required) Ray Turner  
